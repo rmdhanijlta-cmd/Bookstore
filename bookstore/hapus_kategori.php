@@ -1,0 +1,1 @@
+<?php session_start(); include 'koneksi.php'; if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){ header("Location: login.php"); exit; } $id = $_GET['id']; mysqli_query($conn, "DELETE FROM kategori WHERE id='$id'"); header("Location: kelola_kategori.php"); exit; ?>
