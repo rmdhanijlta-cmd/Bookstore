@@ -1,4 +1,6 @@
 <?php
+// Menampilkan percakapan yang dibuka dari sisi admin.
+session_name('MILLE_ADMIN');
 session_start();
 include 'koneksi.php';
 

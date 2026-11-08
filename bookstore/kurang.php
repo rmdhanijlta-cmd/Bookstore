@@ -1,4 +1,6 @@
 <?php
+// Mengurangi jumlah buku di keranjang.
+session_name('MILLE_USER');
 session_start();
 include 'koneksi.php';
 

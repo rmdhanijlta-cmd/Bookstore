@@ -1,4 +1,6 @@
 <?php
+// Menampilkan daftar kategori buku yang dapat dikelola admin.
+session_name('MILLE_ADMIN');
 session_start();
 include 'koneksi.php';
 

@@ -1,4 +1,6 @@
 <?php
+// Menghapus riwayat pesanan yang dipilih.
+session_name('MILLE_USER');
 session_start();
 include 'koneksi.php';
 

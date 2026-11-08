@@ -1,4 +1,4 @@
-/* COLOR PALETTE */
+/* Gaya halaman dan pengaturan tampilan. */
 :root {
     --mp-espresso: #3f2417;
     --mp-brown: #68432e;
@@ -10,7 +10,6 @@
     --mp-ink: #302820;
     --mp-shadow: 0 10px 28px rgba(63, 36, 23, .065);
 }
-
 /* BASE */
 html:has(.wrapper),
 body:has(.wrapper .sidebar) {
@@ -19,11 +18,9 @@ body:has(.wrapper .sidebar) {
     color: var(--mp-ink) !important;
     font-family: Inter, Arial, sans-serif !important;
 }
-
 body:has(.wrapper) {
     overflow: auto !important;
 }
-
 /* MAIN LAYOUT */
 .wrapper {
     display: flex !important;
@@ -33,7 +30,6 @@ body:has(.wrapper) {
     gap: 0 !important;
     background: var(--mp-cream) !important;
 }
-
 /* SIDEBAR */
 .wrapper > .sidebar {
     position: sticky !important;
@@ -49,19 +45,16 @@ body:has(.wrapper) {
     background: linear-gradient(160deg, #3f2417 0%, #63402c 100%) !important;
     box-shadow: 8px 0 30px rgba(44, 25, 15, .08) !important;
 }
-
 .wrapper > .sidebar:before {
     font-size: 22px !important;
     letter-spacing: 1.5px !important;
     padding: 5px 12px 8px !important;
 }
-
 .wrapper > .sidebar:after {
     font-size: 9px !important;
     letter-spacing: 2px !important;
     padding: 0 12px 25px !important;
 }
-
 .wrapper > .sidebar a {
     display: flex !important;
     align-items: center !important;
@@ -79,20 +72,17 @@ body:has(.wrapper) {
     text-decoration: none !important;
     transition: .2s ease !important;
 }
-
 .wrapper > .sidebar a:hover {
     background: rgba(255, 255, 255, .12) !important;
     color: #fff !important;
     transform: translateX(3px) !important;
 }
-
 .wrapper > .sidebar a.active {
     background: #f8eee4 !important;
     color: #482b1c !important;
     font-weight: 700 !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, .08) !important;
 }
-
 /* MAIN CONTENT */
 .wrapper > .content,
 .wrapper > main.content {
@@ -107,11 +97,9 @@ body:has(.wrapper) {
     overflow: visible !important;
     background: var(--mp-cream) !important;
 }
-
 .wrapper .content > * {
     max-width: 1420px;
 }
-
 /* HEADINGS */
 .wrapper .content h1 {
     font-family: Georgia, serif !important;
@@ -122,7 +110,6 @@ body:has(.wrapper) {
     letter-spacing: -.5px !important;
     margin: 0 0 8px !important;
 }
-
 .wrapper .content h2 {
     font-family: Georgia, serif !important;
     color: var(--mp-espresso) !important;
@@ -130,12 +117,10 @@ body:has(.wrapper) {
     font-weight: 700 !important;
     line-height: 1.3 !important;
 }
-
 .wrapper .content p {
     color: var(--mp-muted);
     line-height: 1.65;
 }
-
 .wrapper .content .header,
 .wrapper .content .topbar,
 .wrapper .content .page-heading {
@@ -148,7 +133,6 @@ body:has(.wrapper) {
     padding: 0 0 20px !important;
     border-bottom: 1px solid var(--mp-line) !important;
 }
-
 /* CARDS AND PANELS */
 .wrapper .content .panel,
 .wrapper .content .card,
@@ -166,7 +150,6 @@ body:has(.wrapper) {
     border-radius: 18px !important;
     box-shadow: var(--mp-shadow) !important;
 }
-
 /* STATISTICS */
 .wrapper .content .stats,
 .wrapper .content .stat-grid {
@@ -175,7 +158,6 @@ body:has(.wrapper) {
     gap: 16px !important;
     margin-bottom: 25px !important;
 }
-
 .wrapper .content .stat {
     display: flex !important;
     align-items: center !important;
@@ -187,7 +169,6 @@ body:has(.wrapper) {
     background: var(--mp-paper) !important;
     box-shadow: var(--mp-shadow) !important;
 }
-
 .wrapper .content .stat-icon {
     display: grid !important;
     place-items: center !important;
@@ -198,15 +179,12 @@ body:has(.wrapper) {
     background: #f1e5d8 !important;
     color: var(--mp-brown) !important;
 }
-
 .wrapper .content .stat-text {
     min-width: 0 !important;
 }
-
 .wrapper .content .stat:after {
     display: none !important;
 }
-
 /* SECTION HEADERS */
 .wrapper .content .panel-head,
 .wrapper .content .section-head {
@@ -217,7 +195,6 @@ body:has(.wrapper) {
     gap: 14px !important;
     margin-bottom: 18px !important;
 }
-
 /* TABLES */
 .wrapper .content table {
     width: 100% !important;
@@ -228,7 +205,6 @@ body:has(.wrapper) {
     overflow: hidden !important;
     background: var(--mp-paper) !important;
 }
-
 .wrapper .content th {
     padding: 15px 16px !important;
     background: #efe4d9 !important;
@@ -239,7 +215,6 @@ body:has(.wrapper) {
     text-align: left !important;
     text-transform: uppercase !important;
 }
-
 .wrapper .content td {
     padding: 14px 16px !important;
     border-top: 1px solid #eee6de !important;
@@ -248,28 +223,23 @@ body:has(.wrapper) {
     line-height: 1.5 !important;
     vertical-align: middle !important;
 }
-
 .wrapper .content tr:hover td {
     background: #fcf8f3 !important;
 }
-
 /* FORMS */
 .wrapper .content form {
     max-width: 100% !important;
 }
-
 .wrapper .content .form-container form {
     display: grid !important;
     gap: 14px !important;
 }
-
 .wrapper .content .form-container label {
     display: block !important;
     margin: 0 0 6px !important;
     color: #594638 !important;
     font-weight: 650 !important;
 }
-
 .wrapper .content input:not([type=checkbox]):not([type=radio]),
 .wrapper .content select,
 .wrapper .content textarea {
@@ -284,20 +254,17 @@ body:has(.wrapper) {
     outline: none !important;
     transition: .2s ease !important;
 }
-
 .wrapper .content .form-container input,
 .wrapper .content .form-container select,
 .wrapper .content .form-container textarea {
     width: 100% !important;
 }
-
 .wrapper .content input:focus,
 .wrapper .content select:focus,
 .wrapper .content textarea:focus {
     border-color: var(--mp-caramel) !important;
     box-shadow: 0 0 0 3px rgba(168, 121, 80, .14) !important;
 }
-
 /* BUTTONS */
 .wrapper .content button,
 .wrapper .content .btn,
@@ -310,7 +277,6 @@ body:has(.wrapper) {
     cursor: pointer !important;
     transition: .2s ease !important;
 }
-
 .wrapper .content button:hover,
 .wrapper .content .btn:hover,
 .wrapper .content input[type=submit]:hover,
@@ -318,7 +284,6 @@ body:has(.wrapper) {
     transform: translateY(-1px) !important;
     box-shadow: 0 5px 12px rgba(64, 36, 22, .12) !important;
 }
-
 /* SEARCH */
 .wrapper .content .search-box {
     max-width: 100% !important;
@@ -327,15 +292,12 @@ body:has(.wrapper) {
     background: var(--mp-paper) !important;
     box-shadow: none !important;
 }
-
 .wrapper .content .search-box input {
     color: var(--mp-ink) !important;
 }
-
 .wrapper .content .search-box input::placeholder {
     color: #9b9086 !important;
 }
-
 /* BOOK COLLECTION - MAXIMUM 2 COLUMNS */
 .wrapper .content .books {
     display: grid !important;
@@ -345,7 +307,6 @@ body:has(.wrapper) {
     width: 100% !important;
     margin: 24px 0 0 !important;
 }
-
 .wrapper .content .books .book {
     display: grid !important;
     grid-template-columns: 116px minmax(0, 1fr) !important;
@@ -361,7 +322,6 @@ body:has(.wrapper) {
     background: var(--mp-paper) !important;
     box-shadow: var(--mp-shadow) !important;
 }
-
 .wrapper .content .books .book > a {
     display: block !important;
     grid-row: 1 / 4 !important;
@@ -371,7 +331,6 @@ body:has(.wrapper) {
     border-radius: 9px !important;
     background: #f1e8df !important;
 }
-
 .wrapper .content .books .book > a img {
     display: block !important;
     width: 100% !important;
@@ -379,7 +338,6 @@ body:has(.wrapper) {
     object-fit: contain !important;
     object-position: center !important;
 }
-
 .wrapper .content .books .book .book-header,
 .wrapper .content .books .book h3 {
     min-width: 0 !important;
@@ -389,13 +347,11 @@ body:has(.wrapper) {
     line-height: 1.4 !important;
     overflow-wrap: anywhere !important;
 }
-
 .wrapper .content .books .book .author {
     margin: 0 0 10px !important;
     color: var(--mp-muted) !important;
     font-size: 13px !important;
 }
-
 .wrapper .content .books .book .price {
     align-self: end !important;
     margin: 0 !important;
@@ -403,7 +359,6 @@ body:has(.wrapper) {
     font-size: 14px !important;
     font-weight: 700 !important;
 }
-
 /* CATEGORIES */
 .wrapper .content .categories {
     display: flex !important;
@@ -412,7 +367,6 @@ body:has(.wrapper) {
     width: 100% !important;
     margin: 18px 0 22px !important;
 }
-
 .wrapper .content .categories .category-button {
     display: inline-flex !important;
     align-items: center !important;
@@ -428,7 +382,6 @@ body:has(.wrapper) {
     text-decoration: none !important;
     transition: .2s ease !important;
 }
-
 .wrapper .content .categories .category-button:hover,
 .wrapper .content .categories .category-button.selected {
     background: #56331f !important;
@@ -436,7 +389,6 @@ body:has(.wrapper) {
     color: #fff !important;
     transform: translateY(-1px) !important;
 }
-
 /* TOP SELLING BOOKS */
 .wrapper .content .top-books {
     display: grid !important;
@@ -444,75 +396,71 @@ body:has(.wrapper) {
     gap: 20px !important;
     border: 0 !important;
 }
-
 .wrapper .content .top-book {
     padding: 18px !important;
     border: 1px solid var(--mp-line) !important;
     border-radius: 15px !important;
     background: var(--mp-paper) !important;
 }
-
 .wrapper .content .top-book:not(:last-child):after {
     display: none !important;
 }
-
 /* IMAGES */
 .wrapper .content img {
     max-width: 100%;
 }
-
 /* RESPONSIVE TABLET */
 @media (max-width: 1050px) {
     .wrapper > .sidebar {
         width: 220px !important;
-        min-width: 220px !important;
+    min-width: 220px !important;
     }
 
     .wrapper > .content,
     .wrapper > main.content {
         width: calc(100% - 220px) !important;
-        padding: 28px 24px !important;
+    padding: 28px 24px !important;
     }
 
     .wrapper .content .books {
         grid-template-columns: 1fr !important;
     }
 }
-
 /* RESPONSIVE MOBILE */
-@media (max-width: 700px) {
+@media (max-width: 700px) 
+{
     .wrapper {
         display: block !important;
     }
 
     .wrapper > .sidebar {
         position: relative !important;
-        top: auto !important;
-        width: 100% !important;
-        min-width: 0 !important;
-        height: auto !important;
-        min-height: 0 !important;
-        display: flex !important;
-        flex-wrap: wrap !important;
-        gap: 5px !important;
-        padding: 14px !important;
+    top: auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 5px !important;
+    padding: 14px !important;
     }
 
-    .wrapper > .sidebar:before,
+    .wrapper > .sidebar before,
     .wrapper > .sidebar:after {
         width: 100% !important;
     }
 
     .wrapper > .sidebar a {
         flex: 1 1 145px !important;
-        margin: 0 !important;
+    margin: 0 !important;
     }
 
     .wrapper > .content,
     .wrapper > main.content {
         width: 100% !important;
-        min-height: 0 !important;
-        padding: 22px 15px !important;
+    min-height: 0 !important;
+    padding: 22px 15px !important;
     }
 
     .wrapper .content .books,
@@ -522,23 +470,23 @@ body:has(.wrapper) {
 
     .wrapper .content .books .book {
         grid-template-columns: 92px minmax(0, 1fr) !important;
-        padding: 13px !important;
+    padding: 13px !important;
     }
 
     .wrapper .content .books .book > a {
         width: 92px !important;
-        height: 132px !important;
+    height: 132px !important;
     }
 
     .wrapper .content table {
         display: block !important;
-        overflow-x: auto !important;
-        white-space: nowrap !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
     }
 
     .wrapper .content .stats,
     .wrapper .content .stat-grid {
         grid-template-columns: 1fr 1fr !important;
-        gap: 10px !important;
+    gap: 10px !important;
     }
 }

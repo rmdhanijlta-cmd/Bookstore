@@ -1,4 +1,5 @@
 <?php
+// Menyediakan navigasi samping untuk halaman admin.
 /*
  * Sidebar admin bersama.
  * Pakai di tiap halaman admin:
@@ -47,7 +48,7 @@ $menu_admin = [
             <div class="ikon-besar"><i class="fa-solid fa-store"></i></div>
             <div><strong>Lihat Toko</strong><span>Tampilan user</span></div>
         </a>
-        <a href="logout.php" class="side-card keluar">
+        <a href="logout_admin.php" class="side-card keluar">
             <div class="ikon-besar"><i class="fa-solid fa-right-from-bracket"></i></div>
             <div><strong>Keluar</strong><span>Akhiri sesi admin</span></div>
         </a>

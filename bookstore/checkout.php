@@ -1,5 +1,6 @@
 
 <?php
+session_name('MILLE_USER');
 session_start();
 include 'koneksi.php';
 
@@ -50,7 +51,7 @@ try {
         $stok = (int) $row['stok'];
         $harga = (int) $row['harga'];
 
-        if ($jumlah <= 0 || $jumlah > $stok) {
+        if ($jumlah <= 0 || $stok <= 0 || $jumlah > $stok) {
             throw new Exception(
                 "Stok buku tidak mencukupi. Silakan periksa kembali keranjang."
             );

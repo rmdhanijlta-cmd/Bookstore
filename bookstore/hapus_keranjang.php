@@ -1,4 +1,6 @@
 <?php
+// Menghapus satu item dari keranjang user.
+session_name('MILLE_USER');
 session_start();
 include 'koneksi.php';
 

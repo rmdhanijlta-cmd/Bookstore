@@ -1,5 +1,7 @@
 
 <?php
+// Menampilkan ringkasan pesanan dan instruksi pembayaran.
+session_name('MILLE_USER');
 session_start();
 include 'koneksi.php';
 
@@ -70,96 +72,105 @@ function rupiah($angka) {
 <title>Invoice Mille Pagine</title>
 
 <style>
-body{
-    background:#F4F1ED;
-    font-family:Arial,sans-serif;
-    padding:40px;
+body {
+    background: #F4F1ED;
+    font-family: Arial,sans-serif;
+    padding: 40px;
 }
-.card{
-    max-width:700px;
-    margin:auto;
-    background:white;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 6px 20px rgba(0,0,0,.1);
+.card {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,.1);
 }
-.header{
-    background:#5B2E0F;
-    color:white;
-    text-align:center;
-    padding:24px;
+.header {
+    background: #5B2E0F;
+    color: white;
+    text-align: center;
+    padding: 24px;
 }
-.content{
-    padding:28px;
+.content {
+    padding: 28px;
 }
-.row{
-    display:flex;
-    justify-content:space-between;
-    gap:16px;
-    margin:10px 0;
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 10px 0;
 }
-.item{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    padding:14px 0;
-    border-bottom:1px solid #eee;
+.item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid #eee;
 }
-.item img{
-    width:56px;
-    height:72px;
-    object-fit:cover;
-    border-radius:8px;
+.item img {
+    width: 56px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 8px;
 }
-.total{
-    font-size:22px;
-    font-weight:bold;
-    color:#5B2E0F;
+.total {
+    font-size: 22px;
+    font-weight: bold;
+    color: #5B2E0F;
 }
-.info-pembayaran{
-    background:#FFF3E8;
-    border:1px solid #E8D3C0;
-    border-radius:12px;
-    padding:18px;
-    margin-top:24px;
-    line-height:1.7;
+.info-pembayaran {
+    background: #FFF3E8;
+    border: 1px solid #E8D3C0;
+    border-radius: 12px;
+    padding: 18px;
+    margin-top: 24px;
+    line-height: 1.7;
 }
-.info-pembayaran h3{
-    color:#5B2E0F;
-    margin-top:0;
+.info-pembayaran h3 {
+    color: #5B2E0F;
+    margin-top: 0;
 }
-.status{
-    display:inline-block;
-    background:#FFF3E8;
-    color:#5B2E0F;
-    padding:6px 10px;
-    border-radius:6px;
-    font-size:13px;
+.status {
+    display: inline-block;
+    background: #FFF3E8;
+    color: #5B2E0F;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
 }
-.btn{
-    display:block;
-    text-align:center;
-    margin:28px auto 0;
-    width:220px;
-    max-width:100%;
-    box-sizing:border-box;
-    background:#5B2E0F;
-    color:white;
-    padding:14px;
-    border-radius:10px;
-    text-decoration:none;
-    font-weight:bold;
+.btn {
+    display: block;
+    text-align: center;
+    margin: 28px auto 0;
+    width: 220px;
+    max-width: 100%;
+    box-sizing: border-box;
+    background: #5B2E0F;
+    color: white;
+    padding: 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
 }
-.btn:hover{
-    background:#75421F;
+.btn:hover {
+    background: #75421F;
 }
-@media(max-width:600px){
-    body{padding:16px;}
-    .content{padding:20px;}
-    .row{font-size:14px;}
-    .total{font-size:18px;}
+@media(max-width:600px) {
+    body {
+        padding: 16px;
+    }
+    .content {
+        padding: 20px;
+    }
+    .row {
+        font-size: 14px;
+    }
+    .total {
+        font-size: 18px;
+    }
 }
 </style>
+<link rel="stylesheet" href="simple.css">
 </head>
 
 <body>

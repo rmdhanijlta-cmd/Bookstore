@@ -1,4 +1,5 @@
 <?php
+// Menghubungkan halaman PHP ke database MySQL bookstore.
 $host = "localhost";
 $user = "root";
 $pass = "";

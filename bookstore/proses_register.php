@@ -1,4 +1,5 @@
 <?php
+// Menyimpan akun baru setelah data pendaftaran diperiksa.
 include 'koneksi.php';
 
 $nama     = $_POST['nama'];

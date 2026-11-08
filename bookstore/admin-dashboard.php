@@ -1,4 +1,6 @@
 <?php
+// Menampilkan ringkasan data dan aktivitas toko untuk admin.
+session_name('MILLE_ADMIN');
 session_start();
 include 'koneksi.php';
 $total_terjual = mysqli_fetch_assoc(
@@ -21,7 +23,6 @@ $popular = mysqli_query($conn, "
         buku.judul,
         buku.penulis,
         buku.gambar,
-        buku.rating,
         SUM(detail_pesanan.jumlah) as terjual
     FROM detail_pesanan
     JOIN buku ON detail_pesanan.buku_id = buku.id
@@ -152,20 +153,6 @@ $nama_admin = $_SESSION['nama'] ?? 'Admin';
                     <div class="value"><?= $total_pesanan; ?> <small>pesanan</small></div>
                 </div>
             </div>
-            <a href="admin user.php" class="stat-card anim" style="--i:4">
-                <div class="stat-icon emas"><i class="fa-solid fa-users"></i></div>
-                <div class="stat-text">
-                    <div class="label">User Terdaftar</div>
-                    <div class="value"><?= $total_user; ?> <small>user</small></div>
-                </div>
-            </a>
-            <a href="verifikasi_pembayaran.php" class="stat-card anim" style="--i:5">
-                <div class="stat-icon"><i class="fa-solid fa-clock"></i></div>
-                <div class="stat-text">
-                    <div class="label">Menunggu Verifikasi</div>
-                    <div class="value"><?= $total_menunggu; ?> <small>pembayaran</small></div>
-                </div>
-            </a>
         </div>
 
         <?php if(mysqli_num_rows($popular) > 0): ?>
@@ -182,7 +169,7 @@ $nama_admin = $_SESSION['nama'] ?? 'Admin';
                     <div class="info">
                         <h3><?= htmlspecialchars($row['judul']); ?></h3>
                         <p class="penulis">by <?= htmlspecialchars($row['penulis']); ?></p>
-                        <div class="star"><i class="fa-solid fa-star"></i> <?= htmlspecialchars($row['rating']); ?></div>
+                        
                         <div class="terjual">Terjual <strong><?= (int)$row['terjual']; ?></strong>x</div>
                     </div>
                 </a>

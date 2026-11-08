@@ -1,4 +1,6 @@
 <?php
+// Menghubungkan tampilan percakapan user dengan admin.
+session_name('MILLE_ADMIN');
 session_start();
 include 'koneksi.php';
 

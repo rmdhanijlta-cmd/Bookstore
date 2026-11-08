@@ -1,5 +1,7 @@
 
 <?php
+// Memproses checkout dan menyimpan pesanan beserta detailnya.
+session_name('MILLE_USER');
 session_start();
 include 'koneksi.php';
 
@@ -48,7 +50,7 @@ try {
         $jumlah = (int) $row['jumlah'];
         $stok = (int) $row['stok'];
 
-        if ($jumlah < 1 || $jumlah > $stok) {
+        if ($jumlah < 1 || $stok < 1 || $jumlah > $stok) {
             throw new Exception(
                 "Stok buku " . $row['judul'] . " tidak mencukupi."
             );

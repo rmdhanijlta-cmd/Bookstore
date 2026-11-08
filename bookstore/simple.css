@@ -1,0 +1,135 @@
+/* Gaya halaman dan pengaturan tampilan. */
+/* simple.css - gaya simpel untuk sisi user: datar, tanpa gradien/bayangan/animasi */
+*,*::before,*::after {
+    animation: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+body {
+    background: #FAF8F5 !important;
+}
+/* sidebar terang */
+.sidebar {
+    background: #fff !important;
+    border-right: 1px solid #E9E1D8;
+}
+.sidebar-brand {
+    color: #5B2E0F !important;
+    border-bottom: 1px solid #E9E1D8 !important;
+}
+.sidebar-brand .logo-ikon {
+    background: #5B2E0F !important;
+    color: #fff !important;
+}
+.nav-item {
+    color: #7B6A5C !important;
+    border-radius: 8px !important;
+}
+.nav-item .ikon {
+    background: transparent !important;
+    color: inherit !important;
+    border-radius: 0 !important;
+    width: 22px !important;
+    height: auto !important;
+}
+.nav-item:hover {
+    background: #F5EFE8 !important;
+    color: #5B2E0F !important;
+    transform: none !important;
+}
+.nav-item.active {
+    background: #F5EFE8 !important;
+    color: #5B2E0F !important;
+    font-weight: bold;
+}
+.nav-item.active .ikon {
+    background: transparent !important;
+    color: #5B2E0F !important;
+}
+.bantuan {
+    background: #F5EFE8 !important;
+    border: none !important;
+    color: #5B2E0F !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start !important;
+    gap: 12px;
+    padding: 11px 12px !important;
+    text-align: left !important;
+}
+.bantuan:hover {
+    background: #EDE3D8 !important;
+    transform: none !important;
+}
+.bantuan .ikon-besar {
+    background: transparent !important;
+    color: #5B2E0F !important;
+    width: 22px !important;
+    height: auto !important;
+    margin: 0 !important;
+    font-size: 15px !important;
+}
+.bantuan strong {
+    font-size: 14px !important;
+    margin: 0 !important;
+}
+.bantuan span {
+    display: none !important;
+}
+/* hero datar */
+.hero {
+    background: #5B2E0F !important;
+    border-radius: 12px !important;
+}
+.hero .deco,.hero .deco2 {
+    display: none !important;
+}
+/* gradien sampul -> warna datar */
+.book .cover,.book-cover,.cover-box,.order-cover,.status-icon,.stat-icon {
+    background: #F5EFE8 !important;
+}
+.rekening {
+    background: #5B2E0F !important;
+}
+/* kartu: garis tipis, tanpa angkat saat hover */
+.book,.card,.order-card,.item,.box,.panel {
+    transition: border-color .15s !important;
+}
+.book:hover,.card:hover,.item:hover {
+    transform: none !important;
+    border-color: #5B2E0F !important;
+}
+button:hover,a:hover {
+    filter: none;
+}
+/* beri garis tipis agar kartu putih tetap terbaca */
+.book,.top-book,.order-card,.cart-item,.item-keranjang,.profile-card,.form-card,.summary,.ringkasan,.chat-box,.box {
+    border: 1px solid #E9E1D8 !important;
+}
+/* sidebar gaya lama (novel, detail_buku, dll) */
+.sidebar a:not(.nav-item):not(.bantuan) {
+    color: #7B6A5C !important;
+    border-radius: 8px !important;
+    background: transparent !important;
+    transform: none !important;
+}
+.sidebar a:not(.nav-item):not(.bantuan):hover {
+    background: #F5EFE8 !important;
+    color: #5B2E0F !important;
+}
+.sidebar a:not(.nav-item):not(.bantuan).active {
+    background: #F5EFE8 !important;
+    color: #5B2E0F !important;
+    font-weight: bold;
+}
+.sidebar a:not(.nav-item):not(.bantuan) i {
+    color: inherit !important;
+    transform: none !important;
+}
+.sidebar a.active::before {
+    display: none !important;
+}
+.sidebar-menu a:not(.nav-item):hover i {
+    color: inherit !important;
+}

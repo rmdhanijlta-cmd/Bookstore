@@ -1,4 +1,7 @@
-<?php session_start();
+<?php
+// Menghapus data buku yang dipilih admin.
+session_name('MILLE_ADMIN');
+session_start();
  include 'koneksi.php'; 
 if(!isset($_SESSION['role'])
      || $_SESSION['role'] != 'admin')

@@ -1,4 +1,6 @@
 <?php
+// Menampilkan daftar pesanan yang dikelola oleh admin.
+session_name('MILLE_ADMIN');
 session_start();
 include 'koneksi.php';
 

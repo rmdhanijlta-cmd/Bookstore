@@ -1,5 +1,7 @@
 
 <?php
+// Menampilkan pembayaran yang perlu diperiksa dan memproses keputusan admin.
+session_name('MILLE_ADMIN');
 session_start();
 include 'koneksi.php';
 
@@ -374,13 +376,13 @@ $total_menunggu = mysqli_num_rows($query);
                                 <td>
                                     <?php if ($row['metode_bayar'] === 'Transfer Bank'): ?>
 
-                                        <a class="bukti"
-                                        href="<?= e($row['bukti_transfer']) ?>"
-                                        target="_blank"
-                                        rel="noopener noreferrer">
+                                        <button type="button" class="bukti"
+                                            data-bukti="<?= e($row['bukti_transfer']) ?>"
+                                            data-judul="Bukti Pembayaran Pesanan #<?= (int)$row['id'] ?>"
+                                            data-info="<?= e(($row['nama_user'] ?: 'User #' . $row['user_id']) . ' - ' . rupiah($row['total'])) ?>">
                                             <i class="fa-solid fa-image"></i>
                                             Lihat Bukti
-                                        </a>
+                                        </button>
 
                                     <?php else: ?>
 
@@ -494,6 +496,74 @@ $total_menunggu = mysqli_num_rows($query);
     </div>
 
 </div>
+
+<!-- POPUP BUKTI PEMBAYARAN -->
+<div class="bukti-modal" id="buktiModal" hidden>
+    <div class="bukti-box" role="dialog" aria-modal="true" aria-labelledby="buktiJudul">
+        <div class="bukti-head">
+            <div>
+                <h3 id="buktiJudul">Bukti Pembayaran</h3>
+                <p id="buktiInfo"></p>
+            </div>
+            <button type="button" class="bukti-tutup" id="buktiTutup" aria-label="Tutup">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="bukti-gambar">
+            <img id="buktiGambar" src="" alt="Bukti pembayaran">
+            <p class="bukti-gagal" id="buktiGagal" hidden>Gambar bukti tidak dapat ditampilkan.</p>
+        </div>
+
+        <div class="bukti-foot">
+            <a id="buktiBukaBaru" href="#" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-up-right-from-square"></i> Buka di tab baru
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function () {
+    var modal = document.getElementById('buktiModal');
+    var img = document.getElementById('buktiGambar');
+    var gagal = document.getElementById('buktiGagal');
+    var terakhir = null;
+
+    function buka(tombol) {
+        terakhir = tombol;
+        var src = tombol.getAttribute('data-bukti');
+        document.getElementById('buktiJudul').textContent = tombol.getAttribute('data-judul') || 'Bukti Pembayaran';
+        document.getElementById('buktiInfo').textContent = tombol.getAttribute('data-info') || '';
+        document.getElementById('buktiBukaBaru').href = src;
+        gagal.hidden = true;
+        img.hidden = false;
+        img.src = src;
+        modal.hidden = false;
+        document.body.classList.add('modal-terbuka');
+        document.getElementById('buktiTutup').focus();
+    }
+
+    function tutup() {
+        modal.hidden = true;
+        img.removeAttribute('src');
+        document.body.classList.remove('modal-terbuka');
+        if (terakhir) { terakhir.focus(); }
+    }
+
+    img.addEventListener('error', function () {
+        if (!modal.hidden) { img.hidden = true; gagal.hidden = false; }
+    });
+
+    document.querySelectorAll('button.bukti').forEach(function (b) {
+        b.addEventListener('click', function () { buka(b); });
+    });
+
+    document.getElementById('buktiTutup').addEventListener('click', tutup);
+    modal.addEventListener('click', function (e) { if (e.target === modal) { tutup(); } });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) { tutup(); } });
+})();
+</script>
 
 <script src="admin.js"></script>
 </body>

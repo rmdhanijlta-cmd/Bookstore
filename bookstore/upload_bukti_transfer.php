@@ -1,5 +1,7 @@
 
 <?php
+// Memeriksa dan menyimpan bukti transfer dari user.
+session_name('MILLE_USER');
 session_start();
 include 'koneksi.php';
 

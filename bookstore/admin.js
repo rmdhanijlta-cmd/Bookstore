@@ -1,4 +1,5 @@
-/* Filter cepat di sisi browser: <input data-filter="#daftar"> menyaring elemen [data-cari] di dalam #daftar */
+// Mengatur pencarian cepat pada daftar admin dan posisi scroll chat.
+
 document.querySelectorAll('input[data-filter]').forEach(function (input) {
     var target = document.querySelector(input.dataset.filter);
     if (!target) return;

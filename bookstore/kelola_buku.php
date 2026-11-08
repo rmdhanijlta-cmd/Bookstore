@@ -1,10 +1,26 @@
 <?php
+// Menampilkan daftar buku yang dapat dikelola admin.
+session_name('MILLE_ADMIN');
 session_start();
 include 'koneksi.php';
 
 if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
     header("Location: login.php");
     exit;
+}
+
+$pesan_stok = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['aksi'] ?? '') === 'tambah_stok') {
+    $buku_id = filter_input(INPUT_POST, 'buku_id', FILTER_VALIDATE_INT);
+    $jumlah_tambah = filter_input(INPUT_POST, 'jumlah_tambah', FILTER_VALIDATE_INT);
+    if ($buku_id && $jumlah_tambah !== false && $jumlah_tambah > 0) {
+        $stmtStok = mysqli_prepare($conn, "UPDATE buku SET stok = stok + ? WHERE id = ?");
+        mysqli_stmt_bind_param($stmtStok, "ii", $jumlah_tambah, $buku_id);
+        mysqli_stmt_execute($stmtStok);
+        header("Location: kelola_buku.php?stok=berhasil");
+        exit;
+    }
+    $pesan_stok = 'Masukkan jumlah stok tambahan minimal 1.';
 }
 ?>
 
@@ -53,6 +69,12 @@ $buku = mysqli_query($conn, "
             </div>
         </div>
 
+        <?php if (($_GET['stok'] ?? '') === 'berhasil'): ?>
+            <div class="alert alert-success"><i class="fa-solid fa-check-circle"></i> Stok buku berhasil ditambahkan.</div>
+        <?php elseif ($pesan_stok !== ''): ?>
+            <div class="alert alert-error"><?= htmlspecialchars($pesan_stok); ?></div>
+        <?php endif; ?>
+
         <div class="list" id="daftar">
 
         <?php $no = 0; while($row = mysqli_fetch_assoc($buku)): $no++; ?>
@@ -73,6 +95,16 @@ $buku = mysqli_query($conn, "
 
                 <div class="item-right">
                     <div class="price-besar">Rp <?= number_format($row['harga'],0,',','.'); ?></div>
+                    <div class="stock-admin" style="margin:8px 0;color:#5B2E0F;font-weight:600;">
+                        Stok: <strong><?= (int)$row['stok']; ?></strong>
+                        <?= (int)$row['stok'] <= 0 ? '<span style="color:#b42318;"> (Habis)</span>' : ''; ?>
+                    </div>
+                    <form method="POST" class="stock-add-form" style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:8px 0;">
+                        <input type="hidden" name="aksi" value="tambah_stok">
+                        <input type="hidden" name="buku_id" value="<?= (int)$row['id']; ?>">
+                        <input type="number" name="jumlah_tambah" min="1" step="1" placeholder="Jumlah" required style="width:90px;padding:8px;border:1px solid #d8c5b2;border-radius:8px;">
+                        <button type="submit" class="btn btn-emas" style="border:0;cursor:pointer;"><i class="fa-solid fa-plus"></i> Tambah Stok</button>
+                    </form>
 
                     <a href="edit_buku.php?id=<?= (int)$row['id']; ?>" class="btn btn-edit">
                         <i class="fa-solid fa-pen"></i> Ubah
