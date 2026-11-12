@@ -1,4 +1,5 @@
 /* Gaya halaman dan pengaturan tampilan. */
+/* COLOR PALETTE */
 :root {
     --mp-espresso: #3f2417;
     --mp-brown: #68432e;
@@ -427,8 +428,7 @@ body:has(.wrapper) {
     }
 }
 /* RESPONSIVE MOBILE */
-@media (max-width: 700px) 
-{
+@media (max-width: 700px) {
     .wrapper {
         display: block !important;
     }

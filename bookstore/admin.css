@@ -559,7 +559,12 @@ a.stat-card:hover {
     font-size: 12px;
     margin-bottom: 8px;
 }
-
+.top-book .star {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--kuning);
+    margin-bottom: 8px;
+}
 .top-book .terjual {
     font-size: 12px;
     color: var(--muted);

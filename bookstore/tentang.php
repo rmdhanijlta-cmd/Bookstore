@@ -19,6 +19,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'user') {
 <title>Tentang Kita - Mille Pagine</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="admin-fix.css">
 <style>
 /* Navigasi user memakai warna dan bentuk yang sama dengan navigasi admin. */
 .user-sidebar {

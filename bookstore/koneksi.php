@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$db   = "bookstore";
+$db   = "mille_pagine";
 
 $conn = mysqli_connect($host, $user, $pass, $db);
 

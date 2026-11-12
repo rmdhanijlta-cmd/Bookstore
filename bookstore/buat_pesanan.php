@@ -70,6 +70,10 @@ try {
         throw new Exception("Keranjang masih kosong.");
     }
 
+    // Ongkir tetap Rp10.000 per transaksi.
+    $ongkir = 10000;
+    $total += $ongkir;
+
     // Status awal pesanan.
     $status = 'Menunggu Pembayaran';
     $status_pembayaran = 'Belum Bayar';
@@ -79,19 +83,21 @@ try {
         INSERT INTO pesanan (
             user_id,
             total,
+            ongkir,
             metode_pembayaran,
             metode_bayar,
             status,
             status_pembayaran
         )
-        VALUES (?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
     ");
 
     mysqli_stmt_bind_param(
         $stmt,
-        "iissss",
+        "iiissss",
         $user_id,
         $total,
+        $ongkir,
         $metode,
         $metode,
         $status,

@@ -46,6 +46,7 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
 <title>Detail Profil - Mille Pagine</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="admin-fix.css">
 </head>
 <body>
 

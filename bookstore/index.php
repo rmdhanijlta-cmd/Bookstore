@@ -60,6 +60,7 @@ $popular_q = mysqli_query($conn, "
         buku.judul,
         buku.penulis,
         buku.gambar,
+        buku.rating,
         SUM(detail_pesanan.jumlah) as terjual
     FROM detail_pesanan
     JOIN buku ON detail_pesanan.buku_id = buku.id
@@ -493,7 +494,18 @@ body {
     font-size: 13px;
     margin-bottom: 10px;
 }
-
+.top-book .star {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #FFF3DC;
+    color: #C77F00;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+}
 .top-book .terjual {
     font-size: 13px;
     color: var(--coklat-muda);

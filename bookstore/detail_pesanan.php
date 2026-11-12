@@ -22,6 +22,9 @@ if(!$pesanan_user){
     exit;
 }
 
+$jumlah_transaksi = (int)(mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(DISTINCT id) AS total FROM pesanan WHERE user_id = '$user_id'"))['total'] ?? 0);
+$ongkir_total = $jumlah_transaksi * 10000;
+
 $items = mysqli_query($conn, "
     SELECT detail_pesanan.*, buku.judul, buku.penulis, buku.gambar, pesanan.status, pesanan.status_pembayaran, pesanan.alasan_pembatalan, pesanan.id AS pesanan_id
     FROM detail_pesanan 
@@ -41,6 +44,7 @@ $items = mysqli_query($conn, "
 <title>Detail Pesanan - Mille Pagine</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="admin-fix.css">
 </head>
 <body>
 
@@ -121,12 +125,12 @@ $items = mysqli_query($conn, "
                 <div>Rp <?= number_format($total_semua,0,',','.'); ?></div>
 
                 <div>Ongkir</div>
-                <div>Rp 15.000</div>
+                <div>Rp <?= number_format($ongkir_total, 0, ',', '.'); ?></div>
 
                 <div class="line" style="grid-column:1/3;"></div>
 
                 <div class="total">Total Pesanan</div>
-                <div class="total">Rp <?= number_format($total_semua + 15000,0,',','.'); ?></div>
+                <div class="total">Rp <?= number_format($total_semua + $ongkir_total,0,',','.'); ?></div>
             </div>
         </div>
 

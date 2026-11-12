@@ -51,6 +51,13 @@ mysqli_stmt_execute($stmt);
 
 $detail = mysqli_stmt_get_result($stmt);
 
+$subtotal_pesanan = 0;
+while ($baris_detail = mysqli_fetch_assoc($detail)) {
+    $subtotal_pesanan += (int)$baris_detail['harga'] * (int)$baris_detail['jumlah'];
+}
+mysqli_data_seek($detail, 0);
+$ongkir_pesanan = (int)($pesanan['ongkir'] ?? 0);
+
 /* METODE PEMBAYARAN */
 $metode = $pesanan['metode_bayar'] ?? '';
 $status = $pesanan['status'] ?? '';
@@ -235,12 +242,12 @@ body {
 
         <div class="row" style="margin-top:22px;">
             <span>Subtotal</span>
-            <strong>Rp <?= rupiah($pesanan['total']); ?></strong>
+            <strong>Rp <?= rupiah($subtotal_pesanan); ?></strong>
         </div>
 
         <div class="row">
             <span>Ongkir</span>
-            <strong>Gratis</strong>
+            <strong>Rp <?= rupiah($ongkir_pesanan); ?></strong>
         </div>
 
         <hr>

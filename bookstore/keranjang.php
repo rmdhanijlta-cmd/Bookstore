@@ -28,6 +28,8 @@ $query = mysqli_query($conn, "
 
 $items = [];
 $total = 0;
+$ongkir = 10000;
+$total_bayar = 0;
 $jumlah_item = 0;
 $stok_tidak_valid = false;
 
@@ -38,6 +40,7 @@ while($row = mysqli_fetch_assoc($query)){
     $jumlah_item += $row['jumlah'];
     $items[] = $row;
 }
+$total_bayar = $total + ($jumlah_item > 0 ? $ongkir : 0);
 ?>
 
 <!DOCTYPE html>
@@ -849,14 +852,14 @@ body {
 
                 <div class="row">
                     <span>Ongkir</span>
-                    <span class="free">Gratis</span>
+                    <strong>Rp <?= number_format($jumlah_item > 0 ? $ongkir : 0, 0, ',', '.'); ?></strong>
                 </div>
 
                 <hr class="garis">
 
                 <div class="total">
                     <span>TOTAL</span>
-                    <span>Rp <?= number_format($total, 0, ',', '.'); ?></span>
+                    <span>Rp <?= number_format($total_bayar, 0, ',', '.'); ?></span>
                 </div>
 
                 <?php if ($stok_tidak_valid): ?>

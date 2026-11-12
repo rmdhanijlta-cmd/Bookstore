@@ -23,6 +23,7 @@ $popular = mysqli_query($conn, "
         buku.judul,
         buku.penulis,
         buku.gambar,
+        buku.rating,
         SUM(detail_pesanan.jumlah) as terjual
     FROM detail_pesanan
     JOIN buku ON detail_pesanan.buku_id = buku.id
@@ -100,6 +101,7 @@ $nama_admin = $_SESSION['nama'] ?? 'Admin';
 <title>Dashboard Admin - Mille Pagine</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="admin-fix.css">
 </head>
 <body>
 
